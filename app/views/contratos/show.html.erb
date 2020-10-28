@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Usuario:</strong>
+  <%= @contrato.usuario_id %>
+</p>
+
+<p>
+  <strong>Data ini:</strong>
+  <%= @contrato.data_ini %>
+</p>
+
+<p>
+  <strong>Data fim:</strong>
+  <%= @contrato.data_fim %>
+</p>
+
+<p>
+  <strong>Carga horario semanal:</strong>
+  <%= @contrato.carga_horario_semanal %>
+</p>
+
+<p>
+  <strong>Numero matricula:</strong>
+  <%= @contrato.numero_matricula %>
+</p>
+
+<p>
+  <strong>Regular:</strong>
+  <%= @contrato.regular %>
+</p>
+
+<%= link_to 'Edit', edit_contrato_path(@contrato) %> |
+<%= link_to 'Back', contratos_path %>

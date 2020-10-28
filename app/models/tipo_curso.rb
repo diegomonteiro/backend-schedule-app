@@ -1,0 +1,2 @@
+class TipoCurso < ApplicationRecord
+end

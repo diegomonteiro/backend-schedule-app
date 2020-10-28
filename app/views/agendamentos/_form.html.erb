@@ -1,0 +1,32 @@
+<%= form_with(model: agendamento, local: true) do |form| %>
+  <% if agendamento.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(agendamento.errors.count, "error") %> prohibited this agendamento from being saved:</h2>
+
+      <ul>
+        <% agendamento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= select_tag(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }), ) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_hora %>
+    <%= form.datetime_select :data_hora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tipo_curso_id %>
+    <%= select_tag(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo_curso| [tipo_curso.nome, tipo_curso.id] }), ) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

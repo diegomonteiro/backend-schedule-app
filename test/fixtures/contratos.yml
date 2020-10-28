@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  data_ini: 2020-10-08
+  data_fim: 2020-10-08
+  carga_horario_semanal: 1
+  numero_matricula: MyString
+  regular: false
+
+two:
+  usuario: two
+  data_ini: 2020-10-08
+  data_fim: 2020-10-08
+  carga_horario_semanal: 1
+  numero_matricula: MyString
+  regular: false

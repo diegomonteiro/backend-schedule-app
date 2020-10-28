@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Chamadas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Agendamento</th>
+      <th>Presente</th>
+      <th>Falta justificada</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @chamadas.each do |chamada| %>
+      <tr>
+        <td><%= chamada.agendamento_id %></td>
+        <td><%= chamada.presente %></td>
+        <td><%= chamada.falta_justificada %></td>
+        <td><%= link_to 'Show', chamada %></td>
+        <td><%= link_to 'Edit', edit_chamada_path(chamada) %></td>
+        <td><%= link_to 'Destroy', chamada, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Chamada', new_chamada_path %>

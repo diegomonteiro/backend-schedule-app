@@ -1,0 +1,2 @@
+class Sala < ApplicationRecord
+end

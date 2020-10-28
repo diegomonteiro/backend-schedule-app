@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Lotacao max</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salas.each do |sala| %>
+      <tr>
+        <td><%= sala.nome %></td>
+        <td><%= sala.lotacao_max %></td>
+        <td><%= link_to 'Show', sala %></td>
+        <td><%= link_to 'Edit', edit_sala_path(sala) %></td>
+        <td><%= link_to 'Destroy', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sala', new_sala_path %>

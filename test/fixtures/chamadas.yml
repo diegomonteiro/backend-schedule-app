@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  agendamento: one
+  presente: false
+  falta_justificada: false
+
+two:
+  agendamento: two
+  presente: false
+  falta_justificada: false

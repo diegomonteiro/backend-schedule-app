@@ -1,0 +1,47 @@
+<%= form_with(model: contrato, local: true) do |form| %>
+  <% if contrato.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contrato.errors.count, "error") %> prohibited this contrato from being saved:</h2>
+
+      <ul>
+        <% contrato.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.text_field :usuario_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_ini %>
+    <%= form.date_select :data_ini %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_fim %>
+    <%= form.date_select :data_fim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :carga_horario_semanal %>
+    <%= form.number_field :carga_horario_semanal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero_matricula %>
+    <%= form.text_field :numero_matricula %>
+  </div>
+
+  <div class="field">
+    <%= form.label :regular %>
+    <%= form.check_box :regular %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

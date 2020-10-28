@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Agendamento:</strong>
+  <%= @chamada.agendamento_id %>
+</p>
+
+<p>
+  <strong>Presente:</strong>
+  <%= @chamada.presente %>
+</p>
+
+<p>
+  <strong>Falta justificada:</strong>
+  <%= @chamada.falta_justificada %>
+</p>
+
+<%= link_to 'Edit', edit_chamada_path(@chamada) %> |
+<%= link_to 'Back', chamadas_path %>

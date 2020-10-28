@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  usuario: one
+  data_hora: 2020-10-08 22:37:41
+  tipo_curso: one
+
+two:
+  usuario: two
+  data_hora: 2020-10-08 22:37:41
+  tipo_curso: two

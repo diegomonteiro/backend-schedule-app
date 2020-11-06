@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Salas</h1>
-
-<table>
+<div class="card">
+<div class="card-header"><h1>Salas</h1></div>
+<div class="card-body">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Lotacao max</th>
-      <th colspan="3"></th>
+      <th>Máximo de Alunos</th>
+      <th colspan="3">Operações</th>
     </tr>
   </thead>
 
@@ -16,14 +16,15 @@
       <tr>
         <td><%= sala.nome %></td>
         <td><%= sala.lotacao_max %></td>
-        <td><%= link_to 'Show', sala %></td>
-        <td><%= link_to 'Edit', edit_sala_path(sala) %></td>
-        <td><%= link_to 'Destroy', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class=\'fa fa-eye text-success\'></i>'.html_safe, sala %></td>
+        <td><%= link_to '<i class=\'fa fa-edit text-warning\'></i>'.html_safe, edit_sala_path(sala) %></td>
+        <td><%= link_to '<i class=\'fa fa-trash text-danger\'></i>'.html_safe, sala, method: :delete, data: { confirm: 'Tem certeza sobre a exclusão da sala?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Sala', new_sala_path %>
+</div>
+<div class="card-footer">
+  <%= link_to 'Nova Sala', new_sala_path %>
+</div>
+</div>

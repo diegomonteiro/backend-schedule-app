@@ -31,3 +31,27 @@
 
 en:
   hello: "Hello world"
+  datetime:
+    distance_in_words:
+      short:
+        about_x_hours:
+          one: 'há uma hora'
+          other: 'há %{count} horas'
+        less_than_x_minutes:
+          one: 'segundos atrás'
+        x_minutes:
+          one: "há 1 minuto"
+          other: "há %{count} minutos"
+        x_days:
+          one: "há 1 dia"
+          other: "há %{count} dias"
+  activerecord:
+    attributes:
+      user:
+        name: "Nome"
+        password: "Senha"
+        password_confirmation: "Confimação de senha"
+        company: "Empresa"
+        phone: "Telefone"
+        city: "Cidade"
+        current_password: "Senha atual"

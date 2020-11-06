@@ -6,11 +6,11 @@ class Ability
   def initialize(user)
 
     if user.admin?
-      
+      can :manage, :all
     elsif user.aluno?
-
+      can :manage, :all
     elsif user.responsavel?
-
+      can :manage, :all
     end
 
     # Define abilities for the passed in user here. For example:

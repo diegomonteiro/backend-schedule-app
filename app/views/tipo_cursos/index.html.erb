@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Tipo Cursos</h1>
 
 <table>
@@ -16,7 +14,7 @@
         <td><%= tipo_curso.nome %></td>
         <td><%= link_to 'Show', tipo_curso %></td>
         <td><%= link_to 'Edit', edit_tipo_curso_path(tipo_curso) %></td>
-        <td><%= link_to 'Destroy', tipo_curso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', tipo_curso, method: :delete, data: { confirm: 'Tem certeza sobre a exclusão do tipo do curso?' } %></td>
       </tr>
     <% end %>
   </tbody>

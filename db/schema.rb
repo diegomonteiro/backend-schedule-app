@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_09_021846) do
+ActiveRecord::Schema.define(version: 2020_10_31_212014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_021846) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "observacao"
+    t.time "hora_duracao"
     t.index ["tipo_curso_id"], name: "index_agendamentos_on_tipo_curso_id"
     t.index ["usuario_id"], name: "index_agendamentos_on_usuario_id"
   end

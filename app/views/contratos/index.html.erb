@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Contratos</h1>
-
-<table>
+<div class="card">
+<div class="card-header"><h1>Contratos</h1></div>
+<div class="card-body">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Usuario</th>
-      <th>Data ini</th>
-      <th>Data fim</th>
-      <th>Carga horario semanal</th>
-      <th>Numero matricula</th>
+      <th>Aluno</th>
+      <th>Data inicial</th>
+      <th>Data final</th>
+      <th>Carga horária semanal</th>
+      <th>Número matrícula</th>
       <th>Regular</th>
       <th colspan="3"></th>
     </tr>
@@ -18,20 +17,23 @@
   <tbody>
     <% @contratos.each do |contrato| %>
       <tr>
-        <td><%= contrato.usuario_id %></td>
+        <td><%= contrato.usuario.email %></td>
         <td><%= contrato.data_ini %></td>
         <td><%= contrato.data_fim %></td>
         <td><%= contrato.carga_horario_semanal %></td>
         <td><%= contrato.numero_matricula %></td>
         <td><%= contrato.regular %></td>
-        <td><%= link_to 'Show', contrato %></td>
-        <td><%= link_to 'Edit', edit_contrato_path(contrato) %></td>
-        <td><%= link_to 'Destroy', contrato, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class=\'fa fa-eye text-success\'></i>'.html_safe, contrato %></td>
+        <td><%= link_to '<i class=\'fa fa-edit text-warning\'></i>'.html_safe, edit_contrato_path(contrato) %></td>
+        <td><%= link_to '<i class=\'fa fa-trash text-danger\'></i>'.html_safe, contrato, method: :delete, data: { confirm: 'Tem certeza sobre a exclusão do contrato?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
-
-<%= link_to 'New Contrato', new_contrato_path %>
+<div class="card-footer">
+  <%= link_to 'Novo Contrato', new_contrato_path, class: "btn btn-success"%>
+<div>
+</div>

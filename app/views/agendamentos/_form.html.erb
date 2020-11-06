@@ -1,3 +1,4 @@
+
 <%= form_with(model: agendamento, local: true) do |form| %>
   <% if agendamento.errors.any? %>
     <div id="error_explanation">
@@ -11,22 +12,32 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :usuario_id %>
-    <%= select_tag(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }), ) %>
+  <div class="form-group">
+    <%= form.label :usuario_id, "<b>Aluno</b>".html_safe %>
+    <%= form.select(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }),{},{ :class => 'form-control' } ) %>
   </div>
 
-  <div class="field">
-    <%= form.label :data_hora %>
-    <%= form.datetime_select :data_hora %>
+  <div class="form-group">
+    <%= form.label :data_hora, "<b>Data e Hora</b>".html_safe %>
+    <%= form.date_field :data_hora, class: "form-control " %>
   </div>
 
-  <div class="field">
-    <%= form.label :tipo_curso_id %>
-    <%= select_tag(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo_curso| [tipo_curso.nome, tipo_curso.id] }), ) %>
+  <div class="form-group">
+    <%= form.label :hora_duracao, "<b>Duração da Aula</b>".html_safe %>
+    <%= form.time_field :hora_duracao, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.label :tipo_curso_id, "<b>Tipo de Curso</b>".html_safe %>
+    <%= form.select(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo_curso| [tipo_curso.nome, tipo_curso.id] }),{},{:class => 'form-control'} ) %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :observacao, "<b>Observação</b>".html_safe %>
+    <%= form.text_area :observacao, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: 'btn btn-success' %>
   </div>
 <% end %>

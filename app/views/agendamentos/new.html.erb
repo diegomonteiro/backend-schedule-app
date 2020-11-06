@@ -1,5 +1,10 @@
-<h1>New Agendamento</h1>
-
-<%= render 'form', agendamento: @agendamento %>
-
-<%= link_to 'Back', agendamentos_path %>
+<div class="card">
+  <div class="card-header"><h1>Novo Agendamento</h1></div>
+  <div class="card-body">
+  <%= render 'form', agendamento: @agendamento %>
+  </div>
+  <div class="card-footer">
+  <%= link_to 'Show', @agendamento %> |
+  <%= link_to 'Back', agendamentos_path %>
+  </div>
+</div>

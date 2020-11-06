@@ -1,5 +1,9 @@
-<h1>New Contrato</h1>
-
-<%= render 'form', contrato: @contrato %>
-
-<%= link_to 'Back', contratos_path %>
+<div class="card">
+  <div class="card-header"><h1>Novo Contrato</h1></div>
+  <div class="card-body">
+  <%= render 'form', contrato: @contrato %>
+  </div>
+  <div class="card-footer">
+    <%= link_to 'Back', contratos_path %>
+  </div>
+</div>

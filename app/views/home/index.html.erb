@@ -1,1 +1,29 @@
-<h1>Teste de Programação</h1>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script>
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    views: {
+      dayGrid: {
+        // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
+      },
+      timeGrid: {
+        // options apply to timeGridWeek and timeGridDay views
+      },
+      week: {
+        // options apply to dayGridWeek and timeGridWeek views
+      },
+      day: {
+        // options apply to dayGridDay and timeGridDay views
+      }
+    }
+  });
+  calendar.setOption('locale', 'pt-BR');
+  calendar.render();
+});
+
+</script>
+<div id='calendar'></div>

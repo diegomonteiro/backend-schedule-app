@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :agendamento_id %>
-    <%= form.text_field :agendamento_id %>
+    <%= form.select(:agendamento_id, options_for_select(Agendamento.all.map { |agendamento| ["#{agendamento.usuario.email}-#{agendamento.data_hora}", agendamento.id] }), ) %>
   </div>
 
   <div class="field">

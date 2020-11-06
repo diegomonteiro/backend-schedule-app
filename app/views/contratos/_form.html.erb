@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :usuario_id %>
-    <%= form.text_field :usuario_id %>
+    <%= form.select(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }),{},{:class=>"form-control"} ) %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :data_ini %>
-    <%= form.date_select :data_ini %>
+    <%= form.date_field :data_ini, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :data_fim %>
-    <%= form.date_select :data_fim %>
+    <%= form.date_field :data_fim, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :carga_horario_semanal %>
-    <%= form.number_field :carga_horario_semanal %>
+    <%= form.number_field :carga_horario_semanal, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :numero_matricula %>
-    <%= form.text_field :numero_matricula %>
+    <%= form.text_field :numero_matricula, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :regular %>
     <%= form.check_box :regular %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "btn btn-success" %>
   </div>
 <% end %>

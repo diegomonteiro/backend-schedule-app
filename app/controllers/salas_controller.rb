@@ -28,7 +28,7 @@ class SalasController < ApplicationController
 
     respond_to do |format|
       if @sala.save
-        format.html { redirect_to @sala, notice: 'Sala was successfully created.' }
+        format.html { redirect_to @sala, notice: 'Sala foi criada.' }
         format.json { render :show, status: :created, location: @sala }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class SalasController < ApplicationController
   def update
     respond_to do |format|
       if @sala.update(sala_params)
-        format.html { redirect_to @sala, notice: 'Sala was successfully updated.' }
+        format.html { redirect_to @sala, notice: 'Sala foi atualizada.' }
         format.json { render :show, status: :ok, location: @sala }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class SalasController < ApplicationController
   def destroy
     @sala.destroy
     respond_to do |format|
-      format.html { redirect_to salas_url, notice: 'Sala was successfully destroyed.' }
+      format.html { redirect_to salas_url, notice: 'Sala foi excluída.' }
       format.json { head :no_content }
     end
   end

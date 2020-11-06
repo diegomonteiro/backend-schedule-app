@@ -28,7 +28,7 @@ class TipoCursosController < ApplicationController
 
     respond_to do |format|
       if @tipo_curso.save
-        format.html { redirect_to @tipo_curso, notice: 'Tipo curso was successfully created.' }
+        format.html { redirect_to @tipo_curso, notice: 'Tipo do curso foi criado.' }
         format.json { render :show, status: :created, location: @tipo_curso }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class TipoCursosController < ApplicationController
   def update
     respond_to do |format|
       if @tipo_curso.update(tipo_curso_params)
-        format.html { redirect_to @tipo_curso, notice: 'Tipo curso was successfully updated.' }
+        format.html { redirect_to @tipo_curso, notice: 'Tipo do curso foi atualizado.' }
         format.json { render :show, status: :ok, location: @tipo_curso }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class TipoCursosController < ApplicationController
   def destroy
     @tipo_curso.destroy
     respond_to do |format|
-      format.html { redirect_to tipo_cursos_url, notice: 'Tipo curso was successfully destroyed.' }
+      format.html { redirect_to tipo_cursos_url, notice: 'Tipo do curso foi excluído.' }
       format.json { head :no_content }
     end
   end

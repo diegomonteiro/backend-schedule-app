@@ -1,31 +1,31 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Agendamentos</h1>
-
-<table>
+<div class="card">
+<div class="card-header"><h1>Agendamentos</h1></div>
+<div class="card-body">
+<table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Usuario</th>
+      <th>Aluno</th>
       <th>Data hora</th>
-      <th>Tipo curso</th>
-      <th colspan="3"></th>
+      <th>Duração</th>
+      <th>Tipo de Curso</th>
+      <th colspan="3">Operações</th>
     </tr>
   </thead>
 
   <tbody>
     <% @agendamentos.each do |agendamento| %>
       <tr>
-        <td><%= agendamento.usuario_id %></td>
-        <td><%= agendamento.data_hora %></td>
-        <td><%= agendamento.tipo_curso_id %></td>
-        <td><%= link_to 'Show', agendamento %></td>
-        <td><%= link_to 'Edit', edit_agendamento_path(agendamento) %></td>
-        <td><%= link_to 'Destroy', agendamento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= agendamento.usuario.email %></td>
+        <td><%= agendamento.data_hora.strftime("%Y-%m-%d %H:00") %></td>
+        <td><%= agendamento.hora_duracao.strftime("%H:%M") %></td>
+        <td><%= agendamento.tipo_curso.nome %></td>
+        <td><%= link_to '<i class=\'fa fa-eye text-success\'></i>'.html_safe, agendamento %></td>
+        <td><%= link_to '<i class=\'fa fa-edit text-warning\'></i>'.html_safe, edit_agendamento_path(agendamento) %></td>
+        <td><%= link_to '<i class=\'fa fa-trash text-danger\'></i>'.html_safe, agendamento, method: :delete, data: { confirm: 'Tem certeza sobre a exclusão do agendamento?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Agendamento', new_agendamento_path %>
+</div>
+<div class="card-footer"><%= link_to 'Novo Agendamento', new_agendamento_path, class: "btn btn-primary" %></div>
+</div>

@@ -28,7 +28,7 @@ class ChamadasController < ApplicationController
 
     respond_to do |format|
       if @chamada.save
-        format.html { redirect_to @chamada, notice: 'Chamada was successfully created.' }
+        format.html { redirect_to @chamada, notice: 'Chamada efetuada.' }
         format.json { render :show, status: :created, location: @chamada }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ChamadasController < ApplicationController
   def update
     respond_to do |format|
       if @chamada.update(chamada_params)
-        format.html { redirect_to @chamada, notice: 'Chamada was successfully updated.' }
+        format.html { redirect_to @chamada, notice: 'Chamada atualizada.' }
         format.json { render :show, status: :ok, location: @chamada }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ChamadasController < ApplicationController
   def destroy
     @chamada.destroy
     respond_to do |format|
-      format.html { redirect_to chamadas_url, notice: 'Chamada was successfully destroyed.' }
+      format.html { redirect_to chamadas_url, notice: 'Chamada excluída.' }
       format.json { head :no_content }
     end
   end

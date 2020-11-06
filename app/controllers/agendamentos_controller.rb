@@ -28,7 +28,7 @@ class AgendamentosController < ApplicationController
 
     respond_to do |format|
       if @agendamento.save
-        format.html { redirect_to @agendamento, notice: 'Agendamento was successfully created.' }
+        format.html { redirect_to @agendamento, notice: 'Agendamento foi criado.', notice_type: 'info' }
         format.json { render :show, status: :created, location: @agendamento }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AgendamentosController < ApplicationController
   def update
     respond_to do |format|
       if @agendamento.update(agendamento_params)
-        format.html { redirect_to @agendamento, notice: 'Agendamento was successfully updated.' }
+        format.html { redirect_to @agendamento, notice: 'Agendamento foi atualizado.' }
         format.json { render :show, status: :ok, location: @agendamento }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class AgendamentosController < ApplicationController
   def destroy
     @agendamento.destroy
     respond_to do |format|
-      format.html { redirect_to agendamentos_url, notice: 'Agendamento was successfully destroyed.' }
+      format.html { redirect_to agendamentos_url, notice: 'Agendamento foi excluído.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class AgendamentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def agendamento_params
-      params.require(:agendamento).permit(:usuario_id, :data_hora, :tipo_curso_id)
+      params.require(:agendamento).permit(:usuario_id, :data_hora, :hora_duracao, :tipo_curso_id, :observacao)
     end
 end

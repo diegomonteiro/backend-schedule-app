@@ -28,7 +28,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
 
 ## Defaults:
-set :scm,           :git
+#set :scm,           :git
 set :branch,        :main
 set :format,        :pretty
 set :log_level,     :debug
@@ -36,7 +36,7 @@ set :keep_releases, 5
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{config/database.yml config/master.key}
-set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
+set :linked_dirs,  %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system }
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -49,6 +49,7 @@ namespace :puma do
 
   before :start, :make_dirs
 end
+
 
 namespace :deploy do
   desc "Make sure local git is in sync with remote."
@@ -69,6 +70,18 @@ namespace :deploy do
       invoke 'deploy'
     end
   end
+
+  #before "deploy:assets:precompile", "deploy:yarn_install"
+  #namespace :deploy do
+  # desc "Run rake yarn install"
+  #  task :yarn_install do
+  #    on roles(:web) do
+  #      within release_path do
+  #        execute("cd #{release_path} && yarn install --silent --no-progress --no-audit --no-optional")
+  #      end
+  #    end
+  #  end
+  #end
 
   desc 'Restart application'
   task :restart do

@@ -1,9 +1,9 @@
 
 <%= form_with(model: agendamento, local: true) do |form| %>
   <% if agendamento.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(agendamento.errors.count, "error") %> prohibited this agendamento from being saved:</h2>
-
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(agendamento.errors.count, "Erro") %> está impedindo o agendamento:</h2>
+      <hr>
       <ul>
         <% agendamento.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -14,22 +14,27 @@
 
   <div class="form-group">
     <%= form.label :usuario_id, "<b>Aluno</b>".html_safe %>
-    <%= form.select(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }),{},{ :class => 'form-control' } ) %>
+    <%= form.select(:usuario_id, options_for_select(Usuario.with_any_role(:aluno).map { |usuario| [usuario.email, usuario.id] }),{},{ :class => 'form-control' } ) %>
   </div>
 
   <div class="form-group">
     <%= form.label :data_hora, "<b>Data e Hora</b>".html_safe %>
-    <%= form.date_field :data_hora, class: "form-control " %>
+    <%= form.datetime_field :data_hora, class: "form-control " %>
   </div>
 
   <div class="form-group">
     <%= form.label :hora_duracao, "<b>Duração da Aula</b>".html_safe %>
-    <%= form.time_field :hora_duracao, class: "form-control" %>
+    <%= form.time_field :hora_duracao, min: "00:30:00", max: "05:00:00", step: "600", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :tipo_curso_id, "<b>Tipo de Curso</b>".html_safe %>
     <%= form.select(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo_curso| [tipo_curso.nome, tipo_curso.id] }),{},{:class => 'form-control'} ) %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sala_id, "<b>Salas</b>".html_safe %>
+    <%= form.select(:sala_id, options_for_select(Sala.all.map { |sala| [sala.nome, sala.id] }),{},{:class => 'form-control'} ) %>
   </div>
 
   <div class="form-group">

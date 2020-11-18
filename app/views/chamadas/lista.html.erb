@@ -1,0 +1,43 @@
+<% @agendamentos = Agendamento.na_data(Time.zone.now.to_date) %>
+
+<table class="table table-bordered table-condensed table-hover">
+  <thead>
+    <tr>
+      <th><b>Horário</b></th>
+      <% @salas.each do |sala| %>
+
+      <th><b><%= sala.nome %></b></th>
+
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% (8..18).each do |hora| %>
+      <% (0..59).step(60).each do |minuto| %>
+        <%
+          data_ini = Time.zone.now.to_date.to_datetime
+          data_fim = data_ini + ((hora * 60) + minuto).minutes
+        %>
+        <tr>
+          <td><%= "#{hora.to_s.rjust(2, '0')}:#{minuto.to_s.rjust(2, '0')}" %></td>
+          <% @salas.each do |sala| %>
+
+          <td>
+          <% @agendamentos.each do |agendamento| %>
+            <%
+              duracao  = agendamento.hora_duracao.localtime.strftime("%H:%M").split(":")
+              dt_ini = agendamento.data_hora
+              dt_fim = agendamento.data_hora + ((duracao[0].to_i * 60) + (duracao[1].to_f)).minutes
+            %>
+            <% if agendamento.sala_id == sala.id && !((dt_ini..dt_fim).overlaps?(data_ini..data_fim)) %>
+              <span class="badge badge-primary"><%= agendamento.usuario.id %></span>
+            <% end %>
+          <% end %>
+          </td>
+
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

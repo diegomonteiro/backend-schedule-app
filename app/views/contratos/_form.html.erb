@@ -12,27 +12,32 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :usuario_id %>
+    <%= form.label :usuario_id, "<b>Aluno / Responsável</b>".html_safe %>
     <%= form.select(:usuario_id, options_for_select(Usuario.all.map { |usuario| [usuario.email, usuario.id] }),{},{:class=>"form-control"} ) %>
   </div>
 
   <div class="form-group">
-    <%= form.label :data_ini %>
+    <%= form.label :data_ini, "<b>Data de Inicio do Contrato</b>".html_safe %>
     <%= form.date_field :data_ini, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :data_fim %>
+    <%= form.label :data_fim, "<b>Data de Vencimento do Contrato</b>".html_safe %>
     <%= form.date_field :data_fim, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :carga_horario_semanal %>
+    <%= form.label :tipo_curso_id, "<b>Tipo de Curso</b>".html_safe %>
+    <%= form.select(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo| [tipo.nome, tipo.id] }),{},{:class=>"form-control"} ) %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :carga_horario_semanal, "<b>Carga Horária Semanal</b>".html_safe %>
     <%= form.number_field :carga_horario_semanal, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= form.label :numero_matricula %>
+    <%= form.label :numero_matricula, "<b>Número de Matrícula</b>".html_safe %>
     <%= form.text_field :numero_matricula, class: "form-control" %>
   </div>
 

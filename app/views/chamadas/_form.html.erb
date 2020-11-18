@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :agendamento_id %>
+    <%= form.label :agendamento_id, "Selecione o Agendamento" %>
     <%= form.select(:agendamento_id, options_for_select(Agendamento.all.map { |agendamento| ["#{agendamento.usuario.email}-#{agendamento.data_hora}", agendamento.id] }), ) %>
   </div>
 
   <div class="field">
-    <%= form.label :presente %>
+    <%= form.label :presente, "Aluno Presente?" %>
     <%= form.check_box :presente %>
   </div>
 
   <div class="field">
-    <%= form.label :falta_justificada %>
+    <%= form.label :falta_justificada, "Falta Justificada?" %>
     <%= form.check_box :falta_justificada %>
   </div>
 

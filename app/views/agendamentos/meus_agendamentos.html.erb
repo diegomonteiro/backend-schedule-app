@@ -1,10 +1,10 @@
 <div class="card">
-<div class="card-header"><h1>Agendamentos</h1></div>
+<div class="card-header"><h1>Meus Agendamentos</h1></div>
 <div class="card-body">
 <table class="table table-bordered table-condensed table-hover">
   <thead>
     <tr>
-      <th>Aluno</th>
+      <!--<th>Aluno</th>-->
       <th>Data hora</th>
       <th>Duração</th>
       <th>Tipo de Curso</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @agendamentos.each do |agendamento| %>
       <tr>
-        <td><%= agendamento.usuario.email %></td>
+        <!--<td><%= agendamento.usuario.email %></td>-->
         <td><%= agendamento.data_hora.strftime("%Y-%m-%d %H:00") unless agendamento.data_hora.nil? %></td>
         <td><%= agendamento.hora_duracao.strftime("%H:%M") unless agendamento.hora_duracao.nil? %></td>
         <td><%= agendamento.tipo_curso.nome %></td>

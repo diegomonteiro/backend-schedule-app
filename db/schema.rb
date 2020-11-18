@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_31_212014) do
+ActiveRecord::Schema.define(version: 2020_11_15_001210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_212014) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "observacao"
     t.time "hora_duracao"
+    t.bigint "sala_id", null: false
+    t.index ["sala_id"], name: "index_agendamentos_on_sala_id"
     t.index ["tipo_curso_id"], name: "index_agendamentos_on_tipo_curso_id"
     t.index ["usuario_id"], name: "index_agendamentos_on_usuario_id"
   end
@@ -55,6 +57,8 @@ ActiveRecord::Schema.define(version: 2020_10_31_212014) do
     t.boolean "regular"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tipo_curso_id", null: false
+    t.index ["tipo_curso_id"], name: "index_contratos_on_tipo_curso_id"
     t.index ["usuario_id"], name: "index_contratos_on_usuario_id"
   end
 
@@ -73,12 +77,15 @@ ActiveRecord::Schema.define(version: 2020_10_31_212014) do
     t.integer "lotacao_max"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "tipo_curso_id", null: false
+    t.index ["tipo_curso_id"], name: "index_salas_on_tipo_curso_id"
   end
 
   create_table "tipo_cursos", force: :cascade do |t|
     t.string "nome"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "lotacao_max"
   end
 
   create_table "usuarios", force: :cascade do |t|
@@ -119,10 +126,13 @@ ActiveRecord::Schema.define(version: 2020_10_31_212014) do
     t.index ["usuario_id"], name: "index_usuarios_roles_on_usuario_id"
   end
 
+  add_foreign_key "agendamentos", "salas"
   add_foreign_key "agendamentos", "tipo_cursos"
   add_foreign_key "agendamentos", "usuarios"
   add_foreign_key "chamadas", "agendamentos"
   add_foreign_key "contrato_tipo_cursos", "contratos"
   add_foreign_key "contrato_tipo_cursos", "tipo_cursos"
+  add_foreign_key "contratos", "tipo_cursos"
   add_foreign_key "contratos", "usuarios"
+  add_foreign_key "salas", "tipo_cursos"
 end

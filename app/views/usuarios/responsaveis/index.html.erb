@@ -1,0 +1,31 @@
+<div class="card card-success">
+  <div class="card-header"><h2>Listagem de Responsáveis</h2></div>
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Email</th>
+          <th>DN</th>
+          <th>Responsável</th>
+          <th>Contratos</th>
+          <th>Agendamentos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @responsaveis.each do |responsavel| %>
+
+          <tr>
+            <td><%= responsavel.email %></td>
+            <td><%= responsavel.email %></td>
+            <td><%= responsavel.data_nasc %></td>
+            <td><%= "---" %></td>
+            <td><%= responsavel.contratos.count %></td>
+            <td><%= responsavel.agendamentos.count %></td>
+          </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -7,6 +7,11 @@ class ChamadasController < ApplicationController
     @chamadas = Chamada.all
   end
 
+  def lista
+    @salas = Sala.all
+    @agendamentos = Agendamento.all
+  end
+
   # GET /chamadas/1
   # GET /chamadas/1.json
   def show

@@ -21,6 +21,11 @@
     <%= form.number_field :lotacao_max %>
   </div>
 
+  <div class="field">
+    <%= form.label :tipo_curso_id, "<b>Tipo de Curso</b>".html_safe %>
+    <%= form.select(:tipo_curso_id, options_for_select(TipoCurso.all.map { |tipo_curso| [tipo_curso.nome, tipo_curso.id] }),{},{:class => 'form-control'} ) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

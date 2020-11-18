@@ -8,9 +8,11 @@ class Ability
     if user.admin?
       can :manage, :all
     elsif user.aluno?
-      can :manage, :all
+      #can :manage, :all
+      can :read, Agendamento, usuario_id
     elsif user.responsavel?
-      can :manage, :all
+      #can :read, Agendamento, usuario_id
+      #can :manage, :all
     end
 
     # Define abilities for the passed in user here. For example:

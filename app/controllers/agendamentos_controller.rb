@@ -7,6 +7,12 @@ class AgendamentosController < ApplicationController
     @agendamentos = Agendamento.all
   end
 
+  def meus_agendamentos
+    unless current_usuario.nil?
+      @agendamentos = Agendamento.do_usuario(current_usuario)
+    end
+  end
+
   # GET /agendamentos/1
   # GET /agendamentos/1.json
   def show
@@ -69,6 +75,6 @@ class AgendamentosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def agendamento_params
-      params.require(:agendamento).permit(:usuario_id, :data_hora, :hora_duracao, :tipo_curso_id, :observacao)
+      params.require(:agendamento).permit(:usuario_id, :data_hora, :hora_duracao, :tipo_curso_id, :observacao, :sala_id)
     end
 end

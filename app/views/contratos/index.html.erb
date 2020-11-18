@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <th>Aluno</th>
+      <th>Tipo de Curso</th>
       <th>Data inicial</th>
       <th>Data final</th>
       <th>Carga horária semanal</th>
@@ -16,13 +17,14 @@
 
   <tbody>
     <% @contratos.each do |contrato| %>
-      <tr>
+      <tr class="<%= (contrato.regular) ? "table-success" : "table-danger" %>">
         <td><%= contrato.usuario.email %></td>
-        <td><%= contrato.data_ini %></td>
-        <td><%= contrato.data_fim %></td>
+        <td><%= contrato.tipo_curso.nome %></td>
+        <td><%= contrato.data_ini unless contrato.data_ini.nil? %></td>
+        <td><%= contrato.data_fim unless contrato.data_fim.nil? %></td>
         <td><%= contrato.carga_horario_semanal %></td>
         <td><%= contrato.numero_matricula %></td>
-        <td><%= contrato.regular %></td>
+        <td><%= (contrato.regular) ? "Sim" : "Não" %></td>
         <td><%= link_to '<i class=\'fa fa-eye text-success\'></i>'.html_safe, contrato %></td>
         <td><%= link_to '<i class=\'fa fa-edit text-warning\'></i>'.html_safe, edit_contrato_path(contrato) %></td>
         <td><%= link_to '<i class=\'fa fa-trash text-danger\'></i>'.html_safe, contrato, method: :delete, data: { confirm: 'Tem certeza sobre a exclusão do contrato?' } %></td>

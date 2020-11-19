@@ -1,29 +1,85 @@
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.css" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.3.2/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.4.0/locales-all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
 <script>
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    views: {
-      dayGrid: {
-        // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
-      },
-      timeGrid: {
-        // options apply to timeGridWeek and timeGridDay views
-      },
-      week: {
-        // options apply to dayGridWeek and timeGridWeek views
-      },
-      day: {
-        // options apply to dayGridDay and timeGridDay views
-      }
-    }
-  });
-  calendar.setOption('locale', 'pt-BR');
-  calendar.render();
+var eventos = [];
+$.ajax({
+  dataType: "json",
+  url: "/agendamentos.json",
+  success: function(data){
+    //console.log("Resultado: ", data);
+    $.each(data, function(key,evento){
+      var startdate = moment(evento.data_hora);
+      var hms = evento.hora_duracao.substring(11,19);
+      var a = hms.split(':'); // split it at the colons
+
+      // Hours are worth 60 minutes.
+      var minutes = (+a[0]) * 60 + (+a[1]);
+
+      var data_fim = startdate.add(minutes, 'minutes');
+
+      eventos.push({
+        title: "Evento: "+evento.id,
+        start: evento.data_hora,
+        end:   data_fim.format("YYYY-MM-dd HH:mm")
+      });
+
+    });
+
+
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+              headerToolbar: { center: 'dayGridMonth,timeGridWeek' }, // buttons for switching between views
+              initialView: 'timeGridWeek',
+              events: eventos,
+              eventClick: function(info) {
+                alert(info.event.title);
+              },
+              businessHours: [{
+                // days of week. an array of zero-based day of week integers (0=Sunday)
+                daysOfWeek: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
+
+                startTime: '08:00', // a start time (10am in this example)
+                endTime: '19:00', // an end time (6pm in this example)
+              },
+              {
+                // days of week. an array of zero-based day of week integers (0=Sunday)
+                daysOfWeek: [ 6 ], // Monday - Thursday
+
+                startTime: '08:00', // a start time (10am in this example)
+                endTime: '18:00', // an end time (6pm in this example)
+              }],
+              views: {
+                dayGrid: {
+                  // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
+                },
+                timeGrid: {
+                  // options apply to timeGridWeek and timeGridDay views
+                },
+                timeGridWeek:{
+                  allDaySlot: false,
+                  slotDuration: "01:00:00",
+                  selectable: true
+                },
+                week: {
+                  // options apply to dayGridWeek and timeGridWeek views
+                },
+                day: {
+                  // options apply to dayGridDay and timeGridDay views
+                }
+              }
+            });
+          calendar.setOption('locale', 'pt-BR');
+          calendar.render();
+
+  }
 });
+
+
+
+
 
 </script>
 <div id='calendar'></div>

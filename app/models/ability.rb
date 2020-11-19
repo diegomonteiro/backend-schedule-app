@@ -10,7 +10,10 @@ class Ability
     elsif current_usuario.has_role? :aluno
       #can :manage, :all
       can :read, Agendamento, usuario_id: current_usuario.id
-
+      can :read, Contrato, usuario_id: current_usuario.id
+    elsif current_usuario.has_role? :professor
+      can :read, Agendamento
+      can :manage, Chamada
     elsif current_usuario.has_role? :responsavel
       #can :read, Agendamento, usuario_id
       #can :manage, :all

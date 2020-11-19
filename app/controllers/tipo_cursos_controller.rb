@@ -69,6 +69,6 @@ class TipoCursosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tipo_curso_params
-      params.require(:tipo_curso).permit(:nome)
+      params.require(:tipo_curso).permit(:nome, :cor)
     end
 end

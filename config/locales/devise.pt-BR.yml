@@ -1,0 +1,66 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+pt-BR:
+  devise:
+    confirmations:
+      confirmed: "Seu endereço de email foi confirmado com sucesso."
+      send_instructions: "Dentro de minutos chegará na sua caixa de email as instruções de confirmação."
+      send_paranoid_instructions: "Se o seu endereço de email existir em nosso banco de dados, você receberá um email com instruções sobre como confirmar o seu endereço de email em alguns minutos."
+    failure:
+      already_authenticated: "Você já está autenticado."
+      inactive: "Sua conta ainda não foi ativada."
+      invalid: "Informações de %{authentication_keys} ou senha inválidas"
+      locked: "Sua conta está bloqueada."
+      last_attempt: "Você tem mais uma tentativa antes que sua conta seja bloqueada."
+      not_found_in_database: "Informações de %{authentication_keys} ou senha inválidas."
+      timeout: "Sua sessão expirou. Autentique-se novamente."
+      unauthenticated: "Você precisa autenticar-se para continuar."
+      unconfirmed: "Você tem que confirmar sua conta antes de continuar."
+    mailer:
+      confirmation_instructions:
+        subject: "Instruções de Confirmação"
+      reset_password_instructions:
+        subject: "Instruções de redefinição de senha"
+      unlock_instructions:
+        subject: "Desbloquear instruções"
+      email_changed:
+        subject: "Email alterado"
+      password_change:
+        subject: "Senha alterada"
+    omniauth_callbacks:
+      failure: "Não pode autenticar-se com %{kind} devido \"%{reason}\"."
+      success: "Autenticado com sucesso com a %{kind} conta."
+    passwords:
+      no_token: "Você não pode acessar esta página sem vir de um e-mail de redefinição de senha. Se você vier de um e-mail de redefinição de senha, certifique-se de usar o URL completo fornecido."
+      send_instructions: "Você receberá um e-mail com instruções sobre como redefinir sua senha em alguns minutos."
+      send_paranoid_instructions: "Se o seu endereço de e-mail existir em nosso banco de dados, você receberá um link de recuperação de senha em seu endereço de e-mail em alguns minutos."
+      updated: "Sua senha foi alterada com sucesso. Agora você está conectado."
+      updated_not_active: "Sua senha foi alterada com sucesso."
+    registrations:
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Bem-vindo! Você se inscreveu com sucesso"
+      signed_up_but_inactive: "Você se inscreveu com sucesso. No entanto, não foi possível fazer seu login porque sua conta ainda não foi ativada."
+      signed_up_but_locked: "
+Você se inscreveu com sucesso. No entanto, não foi possível fazer seu login porque sua conta está bloqueada."
+      signed_up_but_unconfirmed: "Uma mensagem com um link de confirmação foi enviada para o seu endereço de e-mail. Por favor, siga o link para ativar sua conta."
+      update_needs_confirmation: "Você atualizou sua conta com sucesso, mas precisamos verificar seu novo endereço de e-mail. Verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail."
+      updated: "Sua conta foi atualizada com sucesso."
+      updated_but_not_signed_in: "Sua conta foi atualizada com sucesso, mas como sua senha foi alterada, você precisa fazer login novamente"
+    sessions:
+      signed_in: "Login feito com sucesso."
+      signed_out: "Saiu com sucesso."
+      already_signed_out: "Saiu com sucesso."
+    unlocks:
+      send_instructions: "Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos."
+      send_paranoid_instructions: "Se sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-la em alguns minutos."
+      unlocked: "Sua conta foi desbloqueada com sucesso. Faça login para continuar."
+  errors:
+    messages:
+      already_confirmed: "já foi confirmado, tente fazer login"
+      confirmation_period_expired: "Precisa confirmar %{period}, para requisitar novamente."
+      expired: "Conta expirada, registre-se novamente."
+      not_found: "Não encontrado"
+      not_locked: "Não estava trancado"
+      not_saved:
+        one: "1 erro impediu o recurso de ser salvo:"
+        other: "%{count} erros impediram o recurso de ser salvo."

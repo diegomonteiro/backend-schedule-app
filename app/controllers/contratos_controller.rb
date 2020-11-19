@@ -4,7 +4,7 @@ class ContratosController < ApplicationController
   # GET /contratos
   # GET /contratos.json
   def index
-    @contratos = Contrato.all
+    @contratos = Contrato.accessible_by(current_ability)
   end
 
   # GET /contratos/1

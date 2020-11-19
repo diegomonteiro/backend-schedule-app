@@ -6,7 +6,7 @@
       <th><b>Horário</b></th>
       <% @salas.each do |sala| %>
 
-      <th><b><%= sala.nome %></b></th>
+      <th class="table-<%= sala.tipo_curso.cor %>"><b><%= sala.nome %></b></th>
 
       <% end %>
     </tr>
@@ -30,7 +30,9 @@
               dt_fim = agendamento.data_hora + ((duracao[0].to_i * 60) + (duracao[1].to_f)).minutes
             %>
             <% if agendamento.sala_id == sala.id && !((dt_ini..dt_fim).overlaps?(data_ini..data_fim)) %>
-              <span class="badge badge-primary"><%= agendamento.usuario.id %></span>
+              <button type="button" class="btn btn-primary btn-sm m-0 waves-effect">
+                <%= agendamento.usuario.id %>
+              </button>
             <% end %>
           <% end %>
           </td>

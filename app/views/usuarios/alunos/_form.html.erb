@@ -1,0 +1,16 @@
+<%= form_with(model: usuario, local: true) do |form| %>
+  <% if usuario.errors.any? %>
+    <div class="alert alert-danger" role="alert">
+      <h2><%= pluralize(usuario.errors.count, "Erro") %> está impedindo o usuário de ser salvo:</h2>
+      <hr>
+      <ul>
+        <% agendamento.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+
+<% end %>

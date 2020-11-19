@@ -3,14 +3,15 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(current_usuario)
 
-    if user.admin?
+    if current_usuario.has_role? :admin
       can :manage, :all
-    elsif user.aluno?
+    elsif current_usuario.has_role? :aluno
       #can :manage, :all
-      can :read, Agendamento, usuario_id
-    elsif user.responsavel?
+      can :read, Agendamento, usuario_id: current_usuario.id
+
+    elsif current_usuario.has_role? :responsavel
       #can :read, Agendamento, usuario_id
       #can :manage, :all
     end

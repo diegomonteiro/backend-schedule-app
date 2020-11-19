@@ -4,7 +4,7 @@ class AgendamentosController < ApplicationController
   # GET /agendamentos
   # GET /agendamentos.json
   def index
-    @agendamentos = Agendamento.all
+    @agendamentos = Agendamento.accessible_by(current_ability)
   end
 
   def meus_agendamentos

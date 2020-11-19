@@ -31,17 +31,15 @@
   </head>
 
   <body>
-    <%= render "layouts/components/navbar" %>
+      <%= render "layouts/components/navbar" %>
 
-    <!--<main role="main" class="container">-->
-      <!--<br/><br/><br/><br/>-->
-
+      <main class="mt-5">
 
         <div class="container-fluid">
           <%= render "layouts/components/messages" %>
           <%= yield %>
         </div>
-
+      </main>
 
     <!--</main>-->
   </body>
